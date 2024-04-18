@@ -44,7 +44,16 @@ class PdoGsb {
   	    $ligne = $cmd->fetch();
   	    return $ligne;
     } 
-  /**
+
+    public function getMdp($login)
+{     $req = "select mdp from Visiteur";
+      $cmd = $this->monPdo->prepare($req);
+      $cmd->bindValue(1, $mdp);
+      $cmd->execute();
+      $ligne = $cmd->fetch();
+      return $ligne;
+
+}  /**
    * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
    * concernées par les deux arguments   
    * La boucle foreach ne peut être utilisée ici car on procède
